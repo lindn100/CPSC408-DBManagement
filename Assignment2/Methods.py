@@ -1,4 +1,5 @@
 import sqlite3
+import Student
 def displayAll():
     con = sqlite3.connect('StudentDB.db')
     c = con.cursor() #allows python code to execute SQL statements
@@ -53,7 +54,9 @@ def createStudent():
         print('Not a valid entry.')
         return None
 
-    c.execute("INSERT INTO Students VALUES (?, ?, ? ,?, ?, ?)", (tempID, tempFN, tempLN, tempGPA, tempMajor, tempFA))
+    tempStudent = Student.Student(tempID, tempFN, tempLN, tempGPA, tempMajor, tempFA)
+
+    c.execute("INSERT INTO Students VALUES (?, ?, ? ,?, ?, ?)", tempStudent.getInfo())
 
     con.commit()
     print("Student added.")
