@@ -126,24 +126,54 @@ def updateInfo():
 
 
 def displaySorted():
-    choice = input('Would you like to sort by Major (m), GPA (g), or Advisor (a)? ')
-    if choice.isalpha() is False:
-        print('Not a valid entry.')
-        return None
-
-    if choice != 'm' and choice != 'g' and choice != 'a':
-        print('Not a valid entry.')
-        return None
-
     con = sqlite3.connect('StudentDB.db')
     c = con.cursor()
+    sortOrSearch = input('Would you like to search for a specific Major, GPA, or advisor?(y/n) ')
+    if sortOrSearch.isalpha() is False:
+        print('Not a valid entry.')
+        return None
 
-    if choice == 'm':
-        c.execute('SELECT * FROM Students ORDER BY Major')
-    elif choice == 'g':
-        c.execute('SELECT * FROM Students ORDER BY GPA DESC')
+    if sortOrSearch != 'y' and sortOrSearch != 'n':
+        print('Not a valid entry.')
+        return None
+
+    if sortOrSearch == 'y':
+        typeOfSearch = input('What would you like to sort by? (m, g, a) ')
+        if typeOfSearch.isalpha() is False:
+            print('Not a valid entry.')
+            return None
+
+        if typeOfSearch != 'm' and typeOfSearch != 'g' and typeOfSearch != 'a':
+            print('Not a valid entry.')
+            return None
+
+        if typeOfSearch == 'm':
+            tempMajor = input('What major? ')
+            c.execute('SELECT * FROM Students WHERE Major = ?', (tempMajor,))
+        elif typeOfSearch == 'g':
+            tempGPA = input('What GPA? ')
+            c.execute('SELECT * FROM Students WHERE GPA = ?', (tempGPA,))
+        else:
+            tempFA = input('Which advisor? ')
+            c.execute('SELECT * FROM Students WHERE FacultyAdvisor = ?', (tempFA,))
+
     else:
-        c.execute('SELECT * FROM Students ORDER BY FacultyAdvisor')
+
+        choice = input('Would you like to sort by Major (m), GPA (g), or Advisor (a)? ')
+        if choice.isalpha() is False:
+            print('Not a valid entry.')
+            return None
+
+        if choice != 'm' and choice != 'g' and choice != 'a':
+            print('Not a valid entry.')
+            return None
+
+        if choice == 'm':
+            c.execute('SELECT * FROM Students ORDER BY Major')
+        elif choice == 'g':
+            c.execute('SELECT * FROM Students ORDER BY GPA DESC')
+        else:
+            c.execute('SELECT * FROM Students ORDER BY FacultyAdvisor')
 
     for row in c:
         print(row)

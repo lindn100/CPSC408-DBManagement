@@ -5,7 +5,7 @@ while True:
     print('2. Add a new student')
     print('3. Update a student\'s info')
     print('4. Delete student')
-    print('5. Display students sorted by info')
+    print('5. Find students/display students sorted by info')
     print('6. Exit')
     choice = input('Enter your choice: ')
 
