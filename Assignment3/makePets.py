@@ -4,7 +4,6 @@ import csv
 
 fake = Faker()
 
-animals = ["dog", "cat", "bird", "fish", "hamster", "guinea pig", "snake", "lizard"]
 colors = ["white", "brown", "black", "grey", "red", "yellow", "mix"]
 gender = ["m", "f"]
 
@@ -19,7 +18,7 @@ while i < 500:
 	else:
 		name = fake.first_name_female()
 
-	animalType = random.choice(animals)
+	animalType = random.randint(1, 10)
 	color = random.choice(colors)
 	age = random.randint(1, 5)
 
@@ -29,11 +28,11 @@ while i < 500:
 
 	price = random.uniform(50.0, 1000.0)
 
-	if animalType == "dog":
+	if animalType == 1: #dog
 		breed = random.randint(1, 10)
-	elif animalType == "cat":
+	elif animalType == 2: #cat
 		breed = random.randint(11, 20)
-	else:
+	else: #if not dog or cat, no breed type
 		breed = 0
 
 	with open('pets.csv', 'a', newline = '') as myFile:
