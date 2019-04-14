@@ -8,8 +8,9 @@ public class Main {
         DBCon myConnection = new DBCon();
         Connection con = myConnection.getCon();
 
-        ImportData shelters = new ImportData(con);
-        shelters.importShelters("shelters.csv");
+        ImportData importing = new ImportData(con);
+        //importing.importShelters("shelters.csv");
+        importing.importAnimals("pets.csv");
 
     }
 }
