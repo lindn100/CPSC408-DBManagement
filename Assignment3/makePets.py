@@ -6,13 +6,12 @@ fake = Faker()
 
 animals = ["dog", "cat", "bird", "fish", "hamster", "guinea pig", "snake", "lizard"]
 colors = ["white", "brown", "black", "grey", "red", "yellow", "mix"]
-
 gender = ["m", "f"]
+
 i = 0
 while i < 500:
-	i += 1
 
-	s = ""
+	i += 1
 
 	animalGender = random.choice(gender)
 	if(animalGender == "m"):
