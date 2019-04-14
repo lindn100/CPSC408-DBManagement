@@ -8,7 +8,18 @@ colors = ["white", "brown", "black", "grey", "red", "yellow", "mix"]
 gender = ["m", "f"]
 
 i = 0
-while i < 500:
+
+fileName = input('What do you want to name your csv file? ')
+
+size = input('How many entries do you want? ')
+valSize = int(size)
+
+while valSize < 1:
+	size = input('Invalid input. How many entries do you want? ')
+	valSize = int(size)
+
+
+while i < valSize:
 
 	i += 1
 
@@ -35,6 +46,6 @@ while i < 500:
 	else: #if not dog or cat, no breed type
 		breed = 0
 
-	with open('pets.csv', 'a', newline = '') as myFile:
+	with open(fileName + '.csv', 'a', newline = '') as myFile:
 	    myWriter = csv.writer(myFile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 	    myWriter.writerow([animalType, name, color, age, animalGender, weight, shelter, price, breed])

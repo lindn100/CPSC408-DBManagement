@@ -6,7 +6,16 @@ fake = Faker()
 
 i = 0
 
-while i < 28: #only doing 28 to make 30 total in DB
+fileName = input('What do you want to name your csv file? ')
+
+size = input('How many entries do you want? ')
+valSize = int(size)
+
+while valSize < 1:
+	size = input('Invalid input. How many entries do you want? ')
+	valSize = int(size)
+
+while i < valSize: 
 	i += 1
 
 	name = fake.company()
@@ -22,6 +31,6 @@ while i < 28: #only doing 28 to make 30 total in DB
 
 	website = 'www.' + name + '.com'
 
-	with open('shelters.csv', 'a', newline = '') as myFile:
+	with open(fileName + '.csv', 'a', newline = '') as myFile:
 	    myWriter = csv.writer(myFile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 	    myWriter.writerow([name, city, street, phoneNumber, website])
