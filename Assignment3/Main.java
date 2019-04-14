@@ -9,7 +9,7 @@ public class Main {
         Connection con = myConnection.getCon();
 
         ImportData importing = new ImportData(con);
-        //importing.importShelters("shelters.csv");
+        importing.importShelters("shelters.csv");
         importing.importAnimals("pets.csv");
 
     }
