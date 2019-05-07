@@ -13,5 +13,6 @@
 
 1. Pictures of animals
 2. Search bar for specific pets
-3. General UI improvement
-4. Refactoring messy code
+3. Date created on csv files
+4. General UI improvement
+5. Refactoring messy code
