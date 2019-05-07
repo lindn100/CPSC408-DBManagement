@@ -4,7 +4,7 @@
 
 ## Setup
 
-1. Install [XAMPP] (https://www.apachefriends.org/index.html)
+1. Install [XAMPP](https://www.apachefriends.org/index.html)
 2. In the XAMPP directory, throw our OCAdopt file in the htdocs folder.
 3. Start the XAMPP program and start the Apache server.
 4. Navigate in a browser to localhost/OCAdopt and our website should pop up.
