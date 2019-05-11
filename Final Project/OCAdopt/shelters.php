@@ -14,7 +14,7 @@
 
   include('conndb.php');
 
-  $result = $myDB->query("SELECT * FROM Shelters;");
+  $result = $myDB->query("CALL getShelters();"); //stored procedure
 
 
 
