@@ -5,14 +5,14 @@
 ## Setup
 
 1. Install [XAMPP](https://www.apachefriends.org/index.html)
-2. In the XAMPP directory, throw our OCAdopt file in the htdocs folder.
+2. In the XAMPP directory, throw our OCAdopt folder in the htdocs folder.
 3. Start the XAMPP program and start the Apache server.
 4. Navigate in a browser to localhost/OCAdopt and our website should pop up.
 
 ### Future improvements
 
 1. Pictures of animals
-2. Search bar for specific pets
+2. Search bar for specific pets - using LIKE statements
 3. Date created on csv files
 4. General UI improvement
 5. Refactoring messy code
